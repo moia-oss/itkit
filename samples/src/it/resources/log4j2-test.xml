@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+  <Appenders>
+    <Console name="STDOUT">
+      <PatternLayout>
+        <!-- Log4J2 has currently no format that adds the timezone information. Therefore we add it manually.
+             Reference: https://issues.apache.org/jira/browse/LOG4J2-1246 -->
+        <pattern>[%highlight{%-5level}] [%d{dd/MM/yyyy HH:mm:ss.SSS}] [%logger{0}] %highlight{%msg%n}</pattern>
+      </PatternLayout>
+    </Console>
+
+    <!-- Async Loggers will auto-flush in batches, so switch off immediateFlush. -->
+    <RandomAccessFile name="RandomAccessFile" fileName="logs/application.log" immediateFlush="false" append="false">
+      <PatternLayout>
+        <!-- Log4J2 has currently no format that adds the timezone information. Therefore we add it manually.
+             Reference: https://issues.apache.org/jira/browse/LOG4J2-1246 -->
+        <Pattern>[%highlight{%-5level}] [%d{dd/MM/yyyy HH:mm:ss.SSS}] [%logger{0}] %highlight{%msg%n}</Pattern>
+      </PatternLayout>
+    </RandomAccessFile>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="io.moia" level="debug" additivity="false">
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="RandomAccessFile"/>
+    </Logger>
+
+    <Logger name="Remoting" level="off" additivity="false">
+    </Logger>
+
+    <Logger name="akka.remote.EndpointWriter" level="off" additivity="false">
+    </Logger>
+
+    <Root level="info" includeLocation="false">
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="RandomAccessFile"/>
+    </Root>
+  </Loggers>
+</Configuration>
