@@ -13,8 +13,6 @@ lazy val itkit =
     .configs(IntegrationTest)
     .settings(Defaults.itSettings: _*)
     .settings(commonSettings)
-    .settings(packageSettings)
-    .settings(publishSettings)
     .settings(
       libraryDependencies ++= Seq(
         // compile time dependencies
@@ -90,8 +88,6 @@ lazy val commonSettings =
     scapegoatSettings ++
     sbtGitSettings
 
-lazy val packageSettings = releaseSettings
-
 lazy val compilerSettings =
   Seq(
     scalaVersion := "2.13.5",
@@ -136,35 +132,16 @@ lazy val licenseSettings =
 
 lazy val organizationSettings = Seq(organization := "io.moia")
 
-import ReleaseTransformations._
-
-lazy val releaseSettings =
+lazy val sonatypeSettings = {
+  import xerial.sbt.Sonatype._
   Seq(
-    releaseProcess := Seq(
-      checkSnapshotDependencies,
-      inquireVersions,
-      runClean,
-      runTest,
-      releaseStepCommand("scapegoat"),
-      setReleaseVersion,
-      commitReleaseVersion,
-      tagRelease,
-      setNextVersion,
-      commitNextVersion,
-      pushChanges
-    )
+    publishTo := sonatypePublishTo.value,
+    sonatypeProfileName := organization.value,
+    publishMavenStyle := true,
+    sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit", "oss-support@moia.io")),
+    credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
   )
-
-lazy val publishSettings =
-  Seq(
-    // enable artifactory as resolver as well as publishing sink
-    credentials ++= Seq(Path.userHome / ".ivy2" / ".credentials").filter(_.exists).map(Credentials(_)),
-    credentials += (for {
-      user <- sys.env.get("ARTIFACTORY_USER")
-      pass <- sys.env.get("ARTIFACTORY_PASS")
-    } yield Credentials("Artifactory Realm", "moiadev.jfrog.io", user, pass)),
-    publishTo := Some("Artifactory Realm" at "https://moiadev.jfrog.io/artifactory/sbt-release-local/")
-  )
+}
 
 lazy val sbtSettings = Seq(cancelable in Global := true)
 

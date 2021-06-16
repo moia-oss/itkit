@@ -6,20 +6,21 @@ which can be used for sending requests to the server instance.
 
 ## Release
 
-Every new commit in master is built and released as a
-`-SNAPSHOT`. Once you tested that everything works, do the following
-to create an actual release.
+[Tag](https://github.com/moia-oss/itkit/tags) the new version (e.g. `v3.0.0`) and push the tags (`git push origin --tags`).
 
-1. Create an empty commit using `git commit --allow-empty` and specify
-   which version you are releasing.
+You need a [public GPG key](https://www.scala-sbt.org/release/docs/Using-Sonatype.html) with your MOIA email and an account on https://oss.sonatype.org that can [access](https://issues.sonatype.org/browse/OSSRH-52948) the `io.moia` group.
 
-2. Tag (annotated tag with description) the new commit with a `v`
-prefix, e.g. `v1.0.0`.  The `sbt-git` plugin automatically sets the
-`version` to the tag without the `v` (`1.0.0` in our example).
+Add your credentials to `~/.sbt/sonatype_credential` and run
+```sbt
+sbt:itkit> +publishSigned
+```
 
-3. Push the commit **AND** the tag. For example using `git push --tags` and then `git push origin master` from the CLI.
+Then close and release the [repository](https://oss.sonatype.org/#stagingRepositories).
+```
+sbt:itkit> +sonatypeRelease
+```
 
-Once the master pipeline runs, the version will be automatically published.
+Afterwards, add the release to [GitHub](https://github.com/moia-oss/itkit/releases).
 
 ## Usage
 
