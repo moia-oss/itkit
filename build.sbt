@@ -5,11 +5,19 @@
 lazy val itkit =
   project
     .in(file("."))
+    .settings(
+      name := "itkit",
+      organization := "io.moia",
+      licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
+      scmInfo := Some(ScmInfo(url("https://github.com/moia-oss/itkit"), "scm:git@github.com:moia-oss/itkit.git")),
+      homepage := Some(url("https://github.com/moia-oss/itkit")),
+    )
     .enablePlugins(
       AutomateHeaderPlugin,
       GitVersioning,
       GitBranchPrompt
     )
+    .settings(sonatypeSettings: _*)
     .configs(IntegrationTest)
     .settings(Defaults.itSettings: _*)
     .settings(commonSettings)
@@ -82,7 +90,6 @@ lazy val commonSettings =
   compilerSettings ++
     gitSettings ++
     licenseSettings ++
-    organizationSettings ++
     sbtSettings ++
     scalaFmtSettings ++
     scapegoatSettings ++
@@ -129,8 +136,6 @@ lazy val licenseSettings =
     ),
     headerMappings := headerMappings.value + (HeaderFileType.conf -> HeaderCommentStyle.hashLineComment)
   )
-
-lazy val organizationSettings = Seq(organization := "io.moia")
 
 lazy val sonatypeSettings = {
   import xerial.sbt.Sonatype._
