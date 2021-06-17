@@ -1,5 +1,7 @@
 # scala-itkit
 
+![Build & Test](https://github.com/moia-oss/itkit/workflows/Build%20&%20Test/badge.svg)
+
 This framework aims towards reduction of boilerplate produced during development of integration tests. It contains
 traits which can be mixed into your suite classes providing a process running your application and an akka-http client
 which can be used for sending requests to the server instance.
