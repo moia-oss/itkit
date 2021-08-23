@@ -9,7 +9,7 @@ import scala.util.matching.Regex
 
 class SampleProcessPerTestSpec extends FixtureAsyncWordSpecLike with Matchers with OneServerPerTestWithClient {
   override val portMessage: Regex = ".*port: ([0-9]+).*".r
-  override val mainClass = "io.moia.itkit.samples.Main"
+  override val mainClass          = "io.moia.itkit.samples.Main"
   override val mainSuccessMessage = "Application is started up."
 
   "Sample server per test" should {

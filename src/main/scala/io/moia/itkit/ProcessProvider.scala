@@ -37,8 +37,10 @@ trait ProcessProvider extends Logger {
 
   /** Runs the process builder returning the started process.
     *
-    * @param suiteName name of the suite which uses this trait.
-    * @return Started process.
+    * @param suiteName
+    *   name of the suite which uses this trait.
+    * @return
+    *   Started process.
     */
   def runProcessBuilder(suiteName: String): ServerProcess = {
 

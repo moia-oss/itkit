@@ -8,9 +8,9 @@ import org.scalatest.wordspec.AsyncWordSpecLike
 import scala.util.matching.Regex
 
 class SampleProcessPerSuiteSpec extends AsyncWordSpecLike with Matchers with OneClientPerSuite with OneServerPerSuite {
-  override val portMessage: Regex = ".*port: ([0-9]+).*".r
-  override val mainClass = "io.moia.itkit.samples.Main"
-  override val mainSuccessMessage = "Application is started up."
+  override val portMessage: Regex                                   = ".*port: ([0-9]+).*".r
+  override val mainClass                                            = "io.moia.itkit.samples.Main"
+  override val mainSuccessMessage                                   = "Application is started up."
   override lazy val additionalSystemProperties: Map[String, String] = Map("akka.loglevel" -> "DEBUG")
 
   "Sample server per suite" should {

@@ -52,7 +52,8 @@ trait PortAwaitingLogger extends AwaitingLogger[Int] with Logger {
 
 /** Provides a promise containing information encoded into logging messages of a process.
   *
-  * @tparam A type of the information yielded by logging messages.
+  * @tparam A
+  *   type of the information yielded by logging messages.
   */
 trait AwaitingLogger[A] extends ProcessLogger {
   def foundMatchedString: Future[A] = promise.future
