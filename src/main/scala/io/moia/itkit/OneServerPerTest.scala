@@ -14,8 +14,8 @@ import org.scalatest.compatible.Assertion
 import org.scalatest.{AsyncTestSuite, AsyncTestSuiteMixin}
 import scala.concurrent.Future
 
-/** Provides one process containing the server application per test using a dedicated configuration for each process.
-  * The process is destroyed upon termination of test suite.
+/** Provides one process containing the server application per test using a dedicated configuration for each process. The process is
+  * destroyed upon termination of test suite.
   */
 trait OneServerPerTest extends AsyncTestSuiteMixin { this: AsyncTestSuite =>
   private val clientConfig = ConfigFactory.parseString("""
@@ -24,7 +24,7 @@ trait OneServerPerTest extends AsyncTestSuiteMixin { this: AsyncTestSuite =>
     }
   """)
 
-  private implicit val system: ActorSystem          = ActorSystem(s"itkit-client-${suiteId.hashCode().toString}", ConfigFactory.load(clientConfig))
+  private implicit val system: ActorSystem = ActorSystem(s"itkit-client-${suiteId.hashCode().toString}", ConfigFactory.load(clientConfig))
   protected implicit val materializer: Materializer = implicitly[Materializer]
 
   private lazy val suiteHttp: HttpExt = Http()
@@ -35,10 +35,13 @@ trait OneServerPerTest extends AsyncTestSuiteMixin { this: AsyncTestSuite =>
 
   /** Injects a `ServerProcess` instance into the test according to the configuration provided by process `provider`.
     *
-    * @param provider Contains information about the process including package path of main class, port information,
-    *                 message which is yield upon the start of process.
-    * @param test test for the process to be injected into.
-    * @return the result of test application.
+    * @param provider
+    *   Contains information about the process including package path of main class, port information, message which is yield upon the start
+    *   of process.
+    * @param test
+    *   test for the process to be injected into.
+    * @return
+    *   the result of test application.
     */
   def withProcess(provider: ProcessProvider)(test: ServerProcess => Future[Assertion]): Future[Assertion] = {
     val process = createProcess(provider)
