@@ -12,7 +12,7 @@ import scala.util.matching.Regex
   * in this class.
   *
   * @param mainClass
-  *   package path of the class to be used for starting the process. E.g. "io.moia.itkit.Main"#
+  *   package path of the class to be used for starting the process, e.g. "io.moia.itkit.Main"#
   * @param additionalSystemProperties
   *   configuration parametes to be added as -D params during start of the process
   */
