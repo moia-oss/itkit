@@ -6,11 +6,11 @@ lazy val itkit =
   project
     .in(file("."))
     .settings(
-      name := "itkit",
+      name         := "itkit",
       organization := "io.moia",
       licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-      scmInfo := Some(ScmInfo(url("https://github.com/moia-oss/itkit"), "scm:git@github.com:moia-oss/itkit.git")),
-      homepage := Some(url("https://github.com/moia-oss/itkit")),
+      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit"), "scm:git@github.com:moia-oss/itkit.git")),
+      homepage := Some(url("https://github.com/moia-oss/itkit"))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
@@ -48,7 +48,7 @@ lazy val samples =
     .settings(Defaults.itSettings: _*)
     .settings(commonSettings)
     .settings(
-      fork := true,
+      fork            := true,
       publishArtifact := false
     )
 
@@ -98,8 +98,8 @@ lazy val commonSettings =
 
 lazy val compilerSettings =
   Seq(
-    scalaVersion := "2.13.5",
-    versionScheme := Some("early-semver"),
+    scalaVersion                                                       := "2.13.5",
+    versionScheme                                                      := Some("early-semver"),
     Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
     scalacOptions ++= Seq(
       "-unchecked",
@@ -122,7 +122,7 @@ lazy val compilerSettings =
       "1.8"
     ),
     Compile / unmanagedSourceDirectories := Seq((Compile / scalaSource).value),
-    Test / unmanagedSourceDirectories := Seq((Test / scalaSource).value)
+    Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value)
   )
 
 lazy val gitSettings = Seq(git.useGitDescribe := true)
@@ -141,9 +141,9 @@ lazy val licenseSettings =
 lazy val sonatypeSettings = {
   import xerial.sbt.Sonatype._
   Seq(
-    publishTo := sonatypePublishTo.value,
-    sonatypeProfileName := organization.value,
-    publishMavenStyle := true,
+    publishTo              := sonatypePublishTo.value,
+    sonatypeProfileName    := organization.value,
+    publishMavenStyle      := true,
     sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit", "oss-support@moia.io")),
     credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
   )
@@ -158,8 +158,8 @@ lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "1.4.9")
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
 lazy val sbtGitSettings = Seq(
-  git.useGitDescribe := true,
-  git.baseVersion := "0.0.0",
+  git.useGitDescribe       := true,
+  git.baseVersion          := "0.0.0",
   git.uncommittedSignifier := None,
   git.gitTagToVersionNumber := {
     case sbtVersionRegex(v, "")         => Some(v)

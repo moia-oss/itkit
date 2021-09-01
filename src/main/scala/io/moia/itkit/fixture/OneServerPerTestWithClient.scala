@@ -12,8 +12,8 @@ import com.typesafe.config.ConfigFactory
 import io.moia.itkit._
 import org.scalatest.{AsyncTestSuiteMixin, FixtureAsyncTestSuite, FutureOutcome}
 
-/** Provides one process containing the server application per test using the same configuration for each process.
-  * The process is destroyed upon termination of the test.
+/** Provides one process containing the server application per test using the same configuration for each process. The process is destroyed
+  * upon termination of the test.
   */
 trait OneServerPerTestWithClient extends AsyncTestSuiteMixin with ProcessProvider { this: FixtureAsyncTestSuite =>
 

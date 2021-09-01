@@ -22,12 +22,18 @@ trait TestClient {
 
   /** Wraps the `singleRequest` of http extension for the sake of shorter notation.
     *
-    * @param method method to be used in the request, e.g. HttpMethods.GET or HttpMethods.POST
-    * @param path path to be used to send the request to.
-    * @param headers optional headers to be included in the request.
-    * @param entity optional entity to be attached to the request.
-    * @param protocol protocol to be used for the request.
-    * @return server response.
+    * @param method
+    *   method to be used in the request, e.g. HttpMethods.GET or HttpMethods.POST
+    * @param path
+    *   path to be used to send the request to.
+    * @param headers
+    *   optional headers to be included in the request.
+    * @param entity
+    *   optional entity to be attached to the request.
+    * @param protocol
+    *   protocol to be used for the request.
+    * @return
+    *   server response.
     */
   def request(
       method: HttpMethod,
@@ -48,11 +54,16 @@ trait TestClient {
 
   /** Wraps a GET `singleRequest` of http extension for the sake of shorter notation.
     *
-    * @param path path to be used to send the request to.
-    * @param headers optional headers to be included in the request.
-    * @param entity optional entity to be attached to the request.
-    * @param protocol protocol to be used for the request.
-    * @return server response.
+    * @param path
+    *   path to be used to send the request to.
+    * @param headers
+    *   optional headers to be included in the request.
+    * @param entity
+    *   optional entity to be attached to the request.
+    * @param protocol
+    *   protocol to be used for the request.
+    * @return
+    *   server response.
     */
   def getRequest(
       path: String,
@@ -64,11 +75,16 @@ trait TestClient {
 
   /** Wraps a POST `singleRequest` of http extension for the sake of shorter notation.
     *
-    * @param path path to be used to send the request to.
-    * @param headers optional headers to be included in the request.
-    * @param entity optional entity to be attached to the request.
-    * @param protocol protocol to be used for the request.
-    * @return server response.
+    * @param path
+    *   path to be used to send the request to.
+    * @param headers
+    *   optional headers to be included in the request.
+    * @param entity
+    *   optional entity to be attached to the request.
+    * @param protocol
+    *   protocol to be used for the request.
+    * @return
+    *   server response.
     */
   def postRequest(
       path: String,
