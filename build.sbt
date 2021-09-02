@@ -98,7 +98,7 @@ lazy val commonSettings =
 
 lazy val compilerSettings =
   Seq(
-    scalaVersion                                                       := "2.13.5",
+    scalaVersion                                                       := "2.13.6",
     versionScheme                                                      := Some("early-semver"),
     Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
     scalacOptions ++= Seq(
@@ -113,7 +113,8 @@ lazy val compilerSettings =
       "-Xlint:_,-byname-implicit",
       "-Ywarn-numeric-widen",
       "-Ywarn-dead-code",
-      "-Ywarn-value-discard"
+      "-Ywarn-value-discard",
+      "-Xsource:3"
     ),
     javacOptions ++= Seq(
       "-source",
