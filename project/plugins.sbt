@@ -12,7 +12,7 @@ addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.6.0")
 // Formatting in scala
 // See .scalafmt.conf for configuration details.
 // Formatting takes place before the project is compiled.
-addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.3")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.5")
 
 // Static code analysis.
 // sbt> scapegoat
