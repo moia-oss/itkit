@@ -24,8 +24,8 @@ trait OneServerPerTest extends AsyncTestSuiteMixin { this: AsyncTestSuite =>
     }
   """)
 
-  private implicit val system: ActorSystem = ActorSystem(s"itkit-client-${suiteId.hashCode().toString}", ConfigFactory.load(clientConfig))
-  protected implicit val materializer: Materializer = implicitly[Materializer]
+  implicit private val system: ActorSystem          = ActorSystem(s"itkit-client-${suiteId.hashCode().toString}", ConfigFactory.load(clientConfig))
+  implicit protected val materializer: Materializer = implicitly[Materializer]
 
   private lazy val suiteHttp: HttpExt = Http()
 
@@ -49,9 +49,7 @@ trait OneServerPerTest extends AsyncTestSuiteMixin { this: AsyncTestSuite =>
     val futureAssertion = test(process)
 
     // Destroy the process when all tests are completed.
-    futureAssertion.onComplete { _ =>
-      process.destroy()
-    }
+    futureAssertion.onComplete(_ => process.destroy())
     futureAssertion
   }
 
