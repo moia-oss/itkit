@@ -43,7 +43,6 @@ trait ProcessProvider extends Logger {
     *   Started process.
     */
   def runProcessBuilder(suiteName: String): ServerProcess = {
-
     val portLogger = new PortAwaitingLogger {
       val port: Regex           = portMessage
       def logger: ProcessLogger = new ProcessOutputToLogStream()
@@ -74,9 +73,9 @@ trait ProcessProvider extends Logger {
         }
       )
 
-    try {
+    try
       Await.result(processFuture, ConfigLoader.load().process.awaitLogTimeout)
-    } catch {
+    catch {
       case NonFatal(e) =>
         log.warn(s"Destroying the process due to an error", e)
         process.destroy()
@@ -130,6 +129,6 @@ trait ProcessProvider extends Logger {
       mergedSystemProperties ++
       Seq( "-classpath", cp, mainClass )
     // format: on
-    Process(cmd, workDir, (sys.env ++ withEnv).toSeq: _*)
+    Process(cmd, workDir, (sys.env ++ withEnv).toSeq*)
   }
 }
