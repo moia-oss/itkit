@@ -7,7 +7,7 @@ resolvers +=
 addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "1.0.2")
 
 // Automatically adds license information to each source code file.
-addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.6.0")
+addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.6.5")
 
 // Formatting in scala
 // See .scalafmt.conf for configuration details.
@@ -19,7 +19,7 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
 addSbtPlugin("com.sksamuel.scapegoat" % "sbt-scapegoat" % "1.1.1")
 
 // Publish to sonatype
-addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.10")
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.12")
 
 // publishSigned
 addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.1.2")
