@@ -26,19 +26,16 @@ trait OneServerPerSuite extends AsyncTestSuiteMixin with ProcessProvider { this:
     *   not a failure occurred.
     */
   @SuppressWarnings(Array("CatchException"))
-  abstract override def run(testName: Option[String], args: Args): Status = {
+  abstract override def run(testName: Option[String], args: Args): Status =
     try {
       val status = super.run(testName, args)
 
       // Destroy the process when all tests are completed.
-      status.whenCompleted { _ =>
-        process.destroy()
-      }
+      status.whenCompleted(_ => process.destroy())
       status
     } catch {
       case e: Exception =>
         process.destroy()
         throw e
     }
-  }
 }
