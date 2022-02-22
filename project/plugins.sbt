@@ -7,7 +7,7 @@ resolvers +=
 addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "1.0.2")
 
 // Automatically adds license information to each source code file.
-addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.6.0")
+addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.6.5")
 
 // Formatting in scala
 // See .scalafmt.conf for configuration details.
