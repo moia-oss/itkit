@@ -59,13 +59,13 @@ lazy val samples =
 lazy val library =
   new {
     object Version {
-      val akka         = "2.6.17"
+      val akka         = "2.6.18"
       val akkaHttp     = "10.2.6"
       val log4j        = "2.17.1"
       val pureConfig   = "0.17.1"
       val scalaCheck   = "1.15.4"
       val scalaLogging = "3.9.4"
-      val scalaTest    = "3.2.10"
+      val scalaTest    = "3.2.11"
     }
     val akkaActor       = "com.typesafe.akka"          %% "akka-actor"        % Version.akka
     val akkaHttp        = "com.typesafe.akka"          %% "akka-http"         % Version.akkaHttp
@@ -98,7 +98,7 @@ lazy val commonSettings =
 
 lazy val compilerSettings =
   Seq(
-    scalaVersion                                                       := "2.13.6",
+    scalaVersion                                                       := "2.13.8",
     versionScheme                                                      := Some("early-semver"),
     Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
     scalacOptions ++= Seq(
@@ -154,7 +154,7 @@ lazy val sbtSettings = Seq(cancelable in Global := true)
 
 lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
 
-lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "1.4.10")
+lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "1.4.12")
 
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 

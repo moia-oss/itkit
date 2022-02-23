@@ -17,10 +17,6 @@ trait OneServerPerTest extends AsyncTestSuiteMixin with ProcessProvider { this: 
 
     val process = runProcessBuilder(suiteName)
 
-    complete {
-      this.withFixture(test.toNoArgAsyncTest(process))
-    } lastly {
-      process.destroy()
-    }
+    complete(withFixture(test.toNoArgAsyncTest(process))).lastly(process.destroy())
   }
 }

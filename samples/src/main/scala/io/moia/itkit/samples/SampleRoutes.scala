@@ -14,11 +14,9 @@ object SampleRoutes extends Logger {
     path("hello") {
       get {
         hostnameAndPort { (hostname, port) =>
-          {
-            log.info(s"Received a get on $hostname:$port")
+          log.info(s"Received a get on $hostname:$port")
 
-            complete(s"$hostname:$port")
-          }
+          complete(s"$hostname:$port")
         }
       }
     }
