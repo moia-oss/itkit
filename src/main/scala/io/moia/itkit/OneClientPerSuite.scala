@@ -4,7 +4,8 @@
 
 package io.moia.itkit
 
-import akka.actor.ActorSystem
+import akka.actor.typed.ActorSystem
+import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.model.Uri
 import akka.http.scaladsl.{Http, HttpExt}
 import akka.stream.Materializer
@@ -18,7 +19,11 @@ trait OneClientPerSuite extends AsyncTestSuiteMixin with ClientProvider { this: 
     }
   """)
 
-  implicit private val system: ActorSystem = ActorSystem(s"itkit-client-${suiteId.hashCode().toString}", ConfigFactory.load(clientConfig))
+  implicit private val system: ActorSystem[Nothing] = ActorSystem(
+    guardianBehavior = Behaviors.empty,
+    name = s"itkit-client-${suiteId.hashCode().toString}",
+    config = ConfigFactory.load(clientConfig)
+  )
 
   implicit protected val actorMaterializer: Materializer = implicitly[Materializer]
 
