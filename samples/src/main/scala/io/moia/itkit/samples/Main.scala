@@ -1,6 +1,7 @@
 package io.moia.itkit.samples
 
-import akka.actor.ActorSystem
+import akka.actor.typed.ActorSystem
+import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.settings.ServerSettings
 import io.moia.itkit.Logger
@@ -9,8 +10,8 @@ import scala.util.{Failure, Success}
 
 object Main extends Logger {
   def main(args: Array[String]): Unit = {
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
+    implicit val system: ActorSystem[Nothing] = ActorSystem(Behaviors.empty, "itkit")
+    import system.executionContext
 
     type OptionMap = Map[Symbol, String]
 

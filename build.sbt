@@ -67,19 +67,19 @@ lazy val library =
       val scalaLogging = "3.9.4"
       val scalaTest    = "3.2.11"
     }
-    val akkaActor       = "com.typesafe.akka"          %% "akka-actor"        % Version.akka
-    val akkaHttp        = "com.typesafe.akka"          %% "akka-http"         % Version.akkaHttp
-    val akkaHttpTestkit = "com.typesafe.akka"          %% "akka-http-testkit" % Version.akkaHttp
-    val akkaStream      = "com.typesafe.akka"          %% "akka-stream"       % Version.akka
-    val akkaTestkit     = "com.typesafe.akka"          %% "akka-testkit"      % Version.akka
-    val log4jApi        = "org.apache.logging.log4j"    % "log4j-api"         % Version.log4j
-    val log4jCore       = "org.apache.logging.log4j"    % "log4j-core"        % Version.log4j
-    val logJulOverLog4j = "org.apache.logging.log4j"    % "log4j-jul"         % Version.log4j
-    val logSlfOverLog4j = "org.apache.logging.log4j"    % "log4j-slf4j-impl"  % Version.log4j
-    val pureConfig      = "com.github.pureconfig"      %% "pureconfig"        % Version.pureConfig
-    val scalaCheck      = "org.scalacheck"             %% "scalacheck"        % Version.scalaCheck
-    val scalaLogging    = "com.typesafe.scala-logging" %% "scala-logging"     % Version.scalaLogging
-    val scalaTest       = "org.scalatest"              %% "scalatest"         % Version.scalaTest
+    val akkaActor       = "com.typesafe.akka"          %% "akka-actor-typed"         % Version.akka
+    val akkaHttp        = "com.typesafe.akka"          %% "akka-http"                % Version.akkaHttp
+    val akkaHttpTestkit = "com.typesafe.akka"          %% "akka-http-testkit"        % Version.akkaHttp
+    val akkaStream      = "com.typesafe.akka"          %% "akka-stream-typed"        % Version.akka
+    val akkaTestkit     = "com.typesafe.akka"          %% "akka-actor-testkit-typed" % Version.akka
+    val log4jApi        = "org.apache.logging.log4j"    % "log4j-api"                % Version.log4j
+    val log4jCore       = "org.apache.logging.log4j"    % "log4j-core"               % Version.log4j
+    val logJulOverLog4j = "org.apache.logging.log4j"    % "log4j-jul"                % Version.log4j
+    val logSlfOverLog4j = "org.apache.logging.log4j"    % "log4j-slf4j-impl"         % Version.log4j
+    val pureConfig      = "com.github.pureconfig"      %% "pureconfig"               % Version.pureConfig
+    val scalaCheck      = "org.scalacheck"             %% "scalacheck"               % Version.scalaCheck
+    val scalaLogging    = "com.typesafe.scala-logging" %% "scala-logging"            % Version.scalaLogging
+    val scalaTest       = "org.scalatest"              %% "scalatest"                % Version.scalaTest
   }
 
 // *****************************************************************************
