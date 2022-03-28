@@ -59,7 +59,7 @@ lazy val samples =
 lazy val library =
   new {
     object Version {
-      val akka         = "2.6.18"
+      val akka         = "2.6.19"
       val akkaHttp     = "10.2.9"
       val log4j        = "2.17.2"
       val pureConfig   = "0.17.1"
