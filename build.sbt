@@ -65,7 +65,7 @@ lazy val library =
       val pureConfig   = "0.17.1"
       val scalaCheck   = "1.16.0"
       val scalaLogging = "3.9.4"
-      val scalaTest    = "3.2.11"
+      val scalaTest    = "3.2.12"
     }
     val akkaActor       = "com.typesafe.akka"          %% "akka-actor-typed"         % Version.akka
     val akkaHttp        = "com.typesafe.akka"          %% "akka-http"                % Version.akkaHttp
