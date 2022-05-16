@@ -45,7 +45,7 @@ trait ProcessProvider extends Logger {
   def runProcessBuilder(suiteName: String): ServerProcess = {
     val portLogger = new PortAwaitingLogger {
       val port: Regex           = portMessage
-      def logger: ProcessLogger = new ProcessOutputToLogStream()
+      def logger: ProcessLogger = new ProcessOutputToLogStream
     }
 
     val startLogger: StartAwaitingLogger =
