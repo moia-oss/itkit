@@ -5,8 +5,8 @@
 package io.moia
 package itkit
 
-import akka.http.scaladsl.HttpExt
-import akka.http.scaladsl.model._
+import org.apache.pekko.http.scaladsl.HttpExt
+import org.apache.pekko.http.scaladsl.model._
 
 import scala.collection.immutable
 import scala.concurrent.Future

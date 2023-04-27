@@ -1,6 +1,6 @@
 package io.moia.itkit.samples.fixture
 
-import akka.http.scaladsl.unmarshalling.Unmarshal
+import org.apache.pekko.http.scaladsl.unmarshalling.Unmarshal
 import io.moia.itkit.fixture.OneServerPerTestWithClient
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.FixtureAsyncWordSpecLike

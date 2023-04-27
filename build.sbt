@@ -6,7 +6,7 @@ lazy val itkit =
   project
     .in(file("."))
     .settings(
-      name         := "itkit",
+      name         := "itkit-pekko",
       organization := "io.moia",
       licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
       scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit"), "scm:git@github.com:moia-oss/itkit.git")),
@@ -59,27 +59,27 @@ lazy val samples =
 lazy val library =
   new {
     object Version {
-      val akka         = "2.6.20"
-      val akkaHttp     = "10.2.10"
+      val pekko        = "0.0.0+26602-317cbb52-SNAPSHOT"
+      val pekkoHttp    = "0.0.0+4270-1cfacad4-SNAPSHOT"
       val log4j        = "2.20.0"
       val pureConfig   = "0.17.3"
       val scalaCheck   = "1.17.0"
       val scalaLogging = "3.9.5"
       val scalaTest    = "3.2.15"
     }
-    val akkaActor       = "com.typesafe.akka"          %% "akka-actor-typed"         % Version.akka
-    val akkaHttp        = "com.typesafe.akka"          %% "akka-http"                % Version.akkaHttp
-    val akkaHttpTestkit = "com.typesafe.akka"          %% "akka-http-testkit"        % Version.akkaHttp
-    val akkaStream      = "com.typesafe.akka"          %% "akka-stream-typed"        % Version.akka
-    val akkaTestkit     = "com.typesafe.akka"          %% "akka-actor-testkit-typed" % Version.akka
-    val log4jApi        = "org.apache.logging.log4j"    % "log4j-api"                % Version.log4j
-    val log4jCore       = "org.apache.logging.log4j"    % "log4j-core"               % Version.log4j
-    val logJulOverLog4j = "org.apache.logging.log4j"    % "log4j-jul"                % Version.log4j
-    val logSlfOverLog4j = "org.apache.logging.log4j"    % "log4j-slf4j-impl"         % Version.log4j
-    val pureConfig      = "com.github.pureconfig"      %% "pureconfig"               % Version.pureConfig
-    val scalaCheck      = "org.scalacheck"             %% "scalacheck"               % Version.scalaCheck
-    val scalaLogging    = "com.typesafe.scala-logging" %% "scala-logging"            % Version.scalaLogging
-    val scalaTest       = "org.scalatest"              %% "scalatest"                % Version.scalaTest
+    val akkaActor       = "org.apache.pekko"           %% "pekko-actor-typed"         % Version.pekko
+    val akkaHttp        = "org.apache.pekko"           %% "pekko-http"                % Version.pekkoHttp
+    val akkaHttpTestkit = "org.apache.pekko"           %% "pekko-http-testkit"        % Version.pekkoHttp
+    val akkaStream      = "org.apache.pekko"           %% "pekko-stream-typed"        % Version.pekko
+    val akkaTestkit     = "org.apache.pekko"           %% "pekko-actor-testkit-typed" % Version.pekko
+    val log4jApi        = "org.apache.logging.log4j"    % "log4j-api"                 % Version.log4j
+    val log4jCore       = "org.apache.logging.log4j"    % "log4j-core"                % Version.log4j
+    val logJulOverLog4j = "org.apache.logging.log4j"    % "log4j-jul"                 % Version.log4j
+    val logSlfOverLog4j = "org.apache.logging.log4j"    % "log4j-slf4j-impl"          % Version.log4j
+    val pureConfig      = "com.github.pureconfig"      %% "pureconfig"                % Version.pureConfig
+    val scalaCheck      = "org.scalacheck"             %% "scalacheck"                % Version.scalaCheck
+    val scalaLogging    = "com.typesafe.scala-logging" %% "scala-logging"             % Version.scalaLogging
+    val scalaTest       = "org.scalatest"              %% "scalatest"                 % Version.scalaTest
   }
 
 // *****************************************************************************
@@ -124,7 +124,8 @@ lazy val compilerSettings =
       "1.8"
     ),
     Compile / unmanagedSourceDirectories := Seq((Compile / scalaSource).value),
-    Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value)
+    Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value),
+    resolvers += "Apache Pekko Snapshots".at("https://repository.apache.org/content/groups/snapshots")
   )
 
 lazy val gitSettings = Seq(git.useGitDescribe := true)

@@ -1,7 +1,7 @@
 package io.moia.itkit.samples
 
-import akka.http.scaladsl.server.Directives.{complete, get, path}
-import akka.http.scaladsl.server.{Directive, Route}
+import org.apache.pekko.http.scaladsl.server.Directives.{complete, get, path}
+import org.apache.pekko.http.scaladsl.server.{Directive, Route}
 import io.moia.itkit.Logger
 
 object SampleRoutes extends Logger {

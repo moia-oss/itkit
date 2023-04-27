@@ -4,11 +4,11 @@
 
 package io.moia.itkit
 
-import akka.actor.typed.ActorSystem
-import akka.actor.typed.scaladsl.Behaviors
-import akka.http.scaladsl.model.Uri
-import akka.http.scaladsl.{Http, HttpExt}
-import akka.stream.Materializer
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.actor.typed.scaladsl.Behaviors
+import org.apache.pekko.http.scaladsl.model.Uri
+import org.apache.pekko.http.scaladsl.{Http, HttpExt}
+import org.apache.pekko.stream.Materializer
 import com.typesafe.config.ConfigFactory
 import org.scalatest.*
 

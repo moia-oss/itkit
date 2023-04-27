@@ -1,6 +1,6 @@
 package io.moia.itkit.samples
 
-import akka.http.scaladsl.unmarshalling.Unmarshal
+import org.apache.pekko.http.scaladsl.unmarshalling.Unmarshal
 import io.moia.itkit.{OneClientPerSuite, OneServerPerSuite}
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AsyncWordSpecLike

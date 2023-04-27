@@ -1,9 +1,9 @@
 package io.moia.itkit.samples
 
-import akka.actor.typed.ActorSystem
-import akka.actor.typed.scaladsl.Behaviors
-import akka.http.scaladsl.Http
-import akka.http.scaladsl.settings.ServerSettings
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.actor.typed.scaladsl.Behaviors
+import org.apache.pekko.http.scaladsl.Http
+import org.apache.pekko.http.scaladsl.settings.ServerSettings
 import io.moia.itkit.Logger
 
 import scala.util.{Failure, Success}
