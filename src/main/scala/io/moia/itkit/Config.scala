@@ -23,6 +23,6 @@ final case class ProcessConfig(
     maxThreads: Int = 4
 )
 
-final case class ClientConfig(akka: ClientAkkaConfig = ClientAkkaConfig())
+final case class ClientConfig(pekko: ClientPekkaConfig = ClientPekkaConfig())
 
-final case class ClientAkkaConfig(loglevel: String = "INFO")
+final case class ClientPekkaConfig(loglevel: String = "INFO")
