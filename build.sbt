@@ -9,8 +9,8 @@ lazy val itkit =
       name         := "itkit-pekko",
       organization := "io.moia",
       licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit"), "scm:git@github.com:moia-oss/itkit.git")),
-      homepage := Some(url("https://github.com/moia-oss/itkit"))
+      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
+      homepage := Some(url("https://github.com/moia-oss/itkit-pekko"))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
@@ -59,13 +59,13 @@ lazy val samples =
 lazy val library =
   new {
     object Version {
-      val pekko        = "0.0.0+26602-317cbb52-SNAPSHOT"
-      val pekkoHttp    = "0.0.0+4270-1cfacad4-SNAPSHOT"
+      val pekko        = "1.0.1"
+      val pekkoHttp    = "1.0.0"
       val log4j        = "2.20.0"
-      val pureConfig   = "0.17.3"
+      val pureConfig   = "0.17.4"
       val scalaCheck   = "1.17.0"
       val scalaLogging = "3.9.5"
-      val scalaTest    = "3.2.15"
+      val scalaTest    = "3.2.16"
     }
     val pekkoActor        = "org.apache.pekko"           %% "pekko-actor-typed"         % Version.pekko
     val pekkoHttp         = "org.apache.pekko"           %% "pekko-http"                % Version.pekkoHttp
@@ -93,12 +93,11 @@ lazy val commonSettings =
     sbtSettings ++
     scalaFmtSettings ++
     scapegoatSettings ++
-    sbtGitSettings ++
-    mimaSettings
+    sbtGitSettings
 
 lazy val compilerSettings =
   Seq(
-    scalaVersion                                                       := "2.13.10",
+    scalaVersion                                                       := "2.13.11",
     versionScheme                                                      := Some("early-semver"),
     Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
     scalacOptions ++= Seq(
@@ -147,7 +146,7 @@ lazy val sonatypeSettings = {
     publishTo              := sonatypePublishTo.value,
     sonatypeProfileName    := organization.value,
     publishMavenStyle      := true,
-    sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit", "oss-support@moia.io")),
+    sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit-pekko", "oss-support@moia.io")),
     credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
   )
 }
@@ -156,7 +155,7 @@ lazy val sbtSettings = Seq(cancelable in Global := true)
 
 lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
 
-lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.1")
+lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.2")
 
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
@@ -170,8 +169,4 @@ lazy val sbtGitSettings = Seq(
     case sbtVersionRegex(v, s)          => Some(s"$v-$s-SNAPSHOT")
     case _                              => None
   }
-)
-
-lazy val mimaSettings = Seq(
-  mimaPreviousArtifacts := Set("io.moia" %% "itkit" % "2.0.0")
 )
