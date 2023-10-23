@@ -61,7 +61,7 @@ lazy val library =
     object Version {
       val akka         = "2.6.20"
       val akkaHttp     = "10.2.10"
-      val log4j        = "2.20.0"
+      val log4j        = "2.21.0"
       val pureConfig   = "0.17.4"
       val scalaCheck   = "1.17.0"
       val scalaLogging = "3.9.5"
