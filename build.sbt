@@ -67,7 +67,7 @@ lazy val library = new {
   object Version {
     val akka         = "2.6.20"
     val akkaHttp     = "10.2.10"
-    val log4j        = "2.22.1"
+    val log4j        = "2.23.0"
     val pureConfig   = "0.17.6"
     val scalaCheck   = "1.17.0"
     val scalaLogging = "3.9.5"
@@ -154,7 +154,7 @@ lazy val sbtSettings = Seq(cancelable in Global := true)
 
 lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
 
-lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.3")
+lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.4")
 
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
