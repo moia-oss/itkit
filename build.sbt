@@ -103,7 +103,7 @@ lazy val commonSettings =
     mimaSettings
 
 lazy val compilerSettings = Seq(
-  scalaVersion                                                       := "2.13.11",
+  scalaVersion                                                       := "2.13.13",
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
@@ -154,7 +154,7 @@ lazy val sbtSettings = Seq(cancelable in Global := true)
 
 lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
 
-lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.4")
+lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.5")
 
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
