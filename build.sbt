@@ -103,7 +103,7 @@ lazy val commonSettings =
     mimaSettings
 
 lazy val compilerSettings = Seq(
-  scalaVersion                                                       := "2.13.14",
+  scalaVersion                                                       := "2.13.15",
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
