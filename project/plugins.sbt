@@ -4,7 +4,7 @@ resolvers +=
 
 // Use git in sbt, show git prompt and use versions from git.
 // sbt> git <your git command>
-addSbtPlugin("com.github.sbt" % "sbt-git" % "2.0.1")
+addSbtPlugin("com.github.sbt" % "sbt-git" % "2.1.0")
 
 // Automatically adds license information to each source code file.
 addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.10.0")
