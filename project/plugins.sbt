@@ -16,7 +16,7 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.2")
 
 // Static code analysis.
 // sbt> scapegoat
-addSbtPlugin("com.sksamuel.scapegoat" % "sbt-scapegoat" % "1.2.7")
+addSbtPlugin("com.sksamuel.scapegoat" % "sbt-scapegoat" % "1.2.8")
 
 // Publish to sonatype
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.12.2")
