@@ -16,6 +16,7 @@ jobs:
             ~/.m2
             ~/.cache/coursier/
           key: ${{ runner.os }}-sbt-ivy-cache-${{ hashFiles('**/build.sbt') }}-${{ hashFiles('**/plugins.sbt') }}-${{ hashFiles('**/build.properties') }}
+      - uses: sbt/setup-sbt@v1
       - name: Scalafmt
         run: sbt scalafmtCheckAll
 
@@ -33,6 +34,7 @@ jobs:
             ~/.m2
             ~/.cache/coursier/
           key: ${{ runner.os }}-sbt-ivy-cache-${{ hashFiles('**/build.sbt') }}-${{ hashFiles('**/plugins.sbt') }}-${{ hashFiles('**/build.properties') }}
+      - uses: sbt/setup-sbt@v1
       - name: Compile
         run: sbt +compile
 
@@ -51,6 +53,7 @@ jobs:
             ~/.m2
             ~/.cache/coursier/
           key: ${{ runner.os }}-sbt-ivy-cache-${{ hashFiles('**/build.sbt') }}-${{ hashFiles('**/plugins.sbt') }}-${{ hashFiles('**/build.properties') }}
+      - uses: sbt/setup-sbt@v1
       - name: Test Samples
         run: sbt +samples/it:test
 
@@ -68,6 +71,7 @@ jobs:
             ~/.m2
             ~/.cache/coursier/
           key: ${{ runner.os }}-sbt-ivy-cache-${{ hashFiles('**/build.sbt') }}-${{ hashFiles('**/plugins.sbt') }}-${{ hashFiles('**/build.properties') }}
+      - uses: sbt/setup-sbt@v1
       - name: Run scapegoat
         run: sbt scapegoat
 
@@ -85,5 +89,6 @@ jobs:
             ~/.m2
             ~/.cache/coursier/
           key: ${{ runner.os }}-sbt-ivy-cache-${{ hashFiles('**/build.sbt') }}-${{ hashFiles('**/plugins.sbt') }}-${{ hashFiles('**/build.properties') }}
+      - uses: sbt/setup-sbt@v1
       - name: Run mima
         run: sbt mimaReportBinaryIssues
