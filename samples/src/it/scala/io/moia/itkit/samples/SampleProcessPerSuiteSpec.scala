@@ -17,22 +17,19 @@ class SampleProcessPerSuiteSpec extends AsyncWordSpecLike with Matchers with One
 
     "show that a server is only started once per suite" when {
 
-      "first test is executed" in {
+      "first test is executed" in
         client.getRequest("/hello").flatMap { response =>
           Unmarshal(response.entity).to[String].map { s =>
             s shouldBe s"localhost:${process.port}"
           }
         }
-      }
 
-      "second test is executed" in {
-
+      "second test is executed" in
         client.getRequest("/hello").flatMap { response =>
           Unmarshal(response.entity).to[String].map { s =>
             s shouldBe s"localhost:${process.port}"
           }
         }
-      }
     }
   }
 }
