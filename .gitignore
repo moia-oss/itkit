@@ -1,6 +1,7 @@
 # sbt
 lib_managed
 project/project
+project/metals.sbt
 target
 /.bsp/sbt.json
 .bloop
